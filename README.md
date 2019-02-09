@@ -8,7 +8,7 @@
 #### note
 > 1. react-dom/server API renderToString 将组件转化为字符串做最基础的服务器端渲染
 > 1. vDOM是真实dom的js对象映射
-> 1.
+> 1. 用到jsx记得引入react
 
 ---
 
@@ -27,8 +27,11 @@
 
 
 ### 路由
-> 1. dd 
-
+> 1. 客户端路由渲染用BrowserRouter
+> 1. 服务器端路由渲染用StaticRouter，通过req.path动态获取路由路径
+> 1. 
+> 1. 
+> 1. 
 ---
 
 #### 问题：ssr无法正常render绑定事件
