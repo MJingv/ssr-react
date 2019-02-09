@@ -6,6 +6,8 @@ import React from 'react';
 const content = renderToString(<Home/>);
 const app = express();
 
+app.use(express.static('public'));
+
 app.get('/', function (req, res) {
 	res.send(
 		`
@@ -13,7 +15,9 @@ app.get('/', function (req, res) {
 	<header>
 	<title>ssr-react</title>
 	</header>
-	<body>${content}</body>
+	<body>
+	<div id="root">${content}</div></body>
+	<script src="/index.js"></script>
 	</html>
 	`
 	);
