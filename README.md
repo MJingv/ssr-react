@@ -9,6 +9,33 @@
 > 1. react-dom/server API renderToString 将组件转化为字符串做最基础的服务器端渲染
 > 1. vDOM是真实dom的js对象映射
 > 1. 用到jsx记得引入react
+> 1. ssr路由只发生在第一次
+
+---
+
+
+### redux数据管理
+**服务器端渲染**
+
+> 问题：不会运行componentDidMount,store一直为空，不会获取数据
+
+> 1. loadData:在server渲染之前，把数据加载好
+> 1. 路由 match 动态加载loadData
+> 1. 模拟路由匹配行为: map some push
+> 1. react-router-config  match-routers 进行多级路由匹配
+> 1. 利用promise异步加载数据
+
+> 最终解决方案流程：
+
+> 1. 创建空store
+> 2. matchRouters循环匹配并查看是否有loadData
+> 3. 执行loadData，放入promise
+> 4. promise.all成功后，获取全部数据成功
+> 5. 结合路由、请求、数据生产html返回给用户
+
+**客户端渲染**
+> 1. store更新
+> 1. 页面重新渲染出数据
 
 ---
 
@@ -29,6 +56,14 @@
 ### 路由
 > 1. 客户端路由渲染用BrowserRouter
 > 1. 服务器端路由渲染用StaticRouter，通过req.path动态获取路由路径
+> 1. 利用react-router 的link切换路由
+
+---
+
+### 中间层
+浏览器=》node-server=》c++/java-server
+> 1. node服务器只负责拼装并返回页面，java/c++服务器负责底层数据处理
+> 1. 
 > 1. 
 > 1. 
 > 1. 
@@ -49,3 +84,5 @@
    > - 浏览器加载js文件
    > - js中的react代码在浏览器中重新执行
    > - js的react代码接管页面操作
+
+
