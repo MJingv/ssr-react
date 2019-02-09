@@ -14,6 +14,12 @@
 ---
 
 
+### node代理服务器
+
+> 1. express-http-proxy
+
+---
+
 ### redux数据管理
 **服务器端渲染**
 
@@ -37,6 +43,11 @@
 > 1. store更新
 > 1. 页面重新渲染出数据
 
+
+脱水&&注水
+
+> 1. 注水:将数据存入windows.context
+> 2. 脱水:从windows.context拿数据
 ---
 
 ### webpack配置
