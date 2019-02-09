@@ -1,11 +1,10 @@
-const React = require('react');
+import React from 'react';
 
 const Home = () => (
 	<div>
-		i am home
+		welcome to home
 	</div>
 );
-module.exports = {
-	default: Home
-};
+
+export default Home;
 

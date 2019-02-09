@@ -1,9 +1,22 @@
-const express = require('express');
+import express from 'express';
+import Home from './components/Home';
+import {renderToString} from 'react-dom/server';
+import React from 'react';
+
+const content = renderToString(<Home/>);
 const app = express();
-const Home = require('./components/Home');
 
 app.get('/', function (req, res) {
-	res.send(`<h1>hello world form jehol</h1>`);
+	res.send(
+		`
+	<html>
+	<header>
+	<title>ssr-react</title>
+	</header>
+	<body>${content}</body>
+	</html>
+	`
+	);
 });
 
 app.listen(3000, function () {
