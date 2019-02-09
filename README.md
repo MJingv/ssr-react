@@ -5,7 +5,7 @@
 
 ---
 
-#### note
+### note
 > 1. react-dom/server API renderToString 将组件转化为字符串做最基础的服务器端渲染
 > 1. vDOM是真实dom的js对象映射
 > 1. 用到jsx记得引入react
@@ -19,6 +19,24 @@
 > 1. express-http-proxy
 
 ---
+
+
+### 加载css
+
+**服务器端渲染**
+> 1. webpack利用isomorphic-style-loader
+
+
+**客户端端渲染**
+> 1. webpack利用style-loader及css-loader
+
+
+---
+
+
+
+
+
 
 ### redux数据管理
 **服务器端渲染**
@@ -59,7 +77,11 @@
 
 **优化**
 
-> 1.webpack-merge 复用相同的配置
+> 1. webpack-merge 复用相同的配置
+
+**注意**
+> 1. 配置执行顺序：从下到上，从右到左
+
 
 ---
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from './../../components/Header';
+import style from './style.css';
 
 const Home = () => (
-	<div>
+	<div className={style.test}>
 		<Header/>
 		welcome to home
 		<button onClick={() => {
