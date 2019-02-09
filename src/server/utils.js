@@ -1,6 +1,9 @@
 import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
+
 import Routers from '../Routers';
+
 import React from 'react';
 
 export const render = (req) => {
@@ -10,9 +13,12 @@ export const render = (req) => {
 		)
 	);
 
+	const helmet = Helmet.renderStatic();
+
 	return `<html>
 	<header>
-	<title>ssr-react</title>
+	${helmet.title.toString()}
+	${helmet.meta.toString()}
 	</header>
 	<body>
 	<div id="root">${content}</div></body>
