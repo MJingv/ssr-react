@@ -1,8 +1,9 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
+const Home = require('./components/Home');
 
 app.get('/', function (req, res) {
-	res.send('Hello World!');
+	res.send(`<h1>hello world form jehol</h1>`);
 });
 
 app.listen(3000, function () {
