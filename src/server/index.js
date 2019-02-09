@@ -1,7 +1,8 @@
 import express from 'express';
-import Home from './components/Home';
 import {renderToString} from 'react-dom/server';
 import React from 'react';
+
+import Home from '../components/Home';
 
 const content = renderToString(<Home/>);
 const app = express();
@@ -17,7 +18,7 @@ app.get('/', function (req, res) {
 	</header>
 	<body>
 	<div id="root">${content}</div></body>
-	<script src="/index.js"></script>
+	<script src="./index.js"></script>
 	</html>
 	`
 	);

@@ -1,24 +1,15 @@
 const path = require('path');
+const config = require('./webpack.base');
+const merge = require('webpack-merge');
 
-module.exports = {
+
+const clientConfig = {
 	entry: './src/client',
 	output: {
 		filename: "index.js",
 		path: path.resolve(__dirname, 'public')
 	},
-	module: {
-		rules: [{
-			test: /\.js?$/,
-			loader: 'babel-loader',
-			exclude: /node-modules/,
-			options: {
-				presets: ['react', 'stage-0', ['env', {
-					targets: {
-						browsers: ['last 2 versions']
-					}
-				}]]
-			}
-		}]
-	},
 	mode: 'development'
 };
+
+module.exports = merge(config, clientConfig);

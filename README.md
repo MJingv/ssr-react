@@ -3,10 +3,13 @@
 ####attention
 > 1.npm install --save-dev babel-loader@^7
 
+webpack
+> 1.webpack-merge 复用相同的配置
 
 ####note
 > 1. react-dom/server API renderToString 将组件转化为字符串做最基础的服务器端渲染
 > 1. vDOM是真实dom的js对象映射
+> 1.
 
 
 热更新
