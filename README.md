@@ -37,6 +37,18 @@
      4. css不同：客户端用 css-loader 和 style-loader，css-loader 不但会在 DOM 上生成 class 类名，解析好的 CSS 代码，还会通过 style-loader 把代码挂载到页面上。
      5. 服务器端 css 用【 isomorphic-style-loader】拿到返回的样式代码，然后以字符串的形式添加到服务器端渲染的 HTML 之中
 
+#### React-ssr关键api
+
+将React Component转化为HTML的字符串 都接受一个React Component参数，返回一个String
+
+- renderToString
+> 将React Component转化为HTML字符串，生成的HTML的DOM会带有额外属性：各个DOM会有data-react-id属性，第一个DOM会有data-checksum属性。
+- renderToStaticMarkup
+> 同样是将React Component转化为HTML字符串，但是生成HTML的DOM不会有额外属性，从而节省HTML字符串的大小。
+- ps
+> 1. 如果使用renderToString渲染组件，会在组件的第一个DOM带有data-react-checksum属性，这个属性是通过adler32算法算出来：如果两个组件有相同的props和DOM结构时，adler32算法算出的checksum值会一样，有点类似于哈希算法。
+> 2. 当客户端渲染React组件时，首先计算出组件的checksum值，然后检索HTML DOM看看是否存在数值相同的data-react-checksum属性，如果存在，则组件只会渲染一次，如果不存在，则会抛出一个warning异常。也就是说，当服务器端和客户端渲染具有相同的props和相同DOM结构的组件时，该React组件只会渲染一次。
+
 ---
 ---
 ---
