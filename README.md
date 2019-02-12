@@ -18,6 +18,7 @@
 
 #### 实现原理 -- 虚拟dom
 
+![ssr](https://github.com/MJingv/ssr-react/blob/master/ssr.png)
 
 ---
 
