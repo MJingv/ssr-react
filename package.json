@@ -1,0 +1,55 @@
+{
+  "name": "ssr-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^2.1.0",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.5.1",
+    "isomorphic-style-loader": "^4.0.0",
+    "koa-view": "^2.1.2",
+    "npm-run-all": "^4.1.5",
+    "prerender": "^5.5.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^4.3.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.3",
+    "webpack-merge": "^4.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^7.1.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:**",
+    "dev:start": "nodemon --watch build --exec  node \"./build/bundle.js\"",
+    "dev:build:server": "webpack --config webpack.server.js --watch",
+    "dev:build:client": "webpack --config webpack.client.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJingv/ssr-react.git"
+  },
+  "keywords": [
+    "ssr",
+    "react"
+  ],
+  "author": "MJingv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MJingv/ssr-react/issues"
+  },
+  "homepage": "https://github.com/MJingv/ssr-react#readme"
+}
