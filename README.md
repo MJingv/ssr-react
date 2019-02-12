@@ -1,7 +1,7 @@
 # ssr-react
 
 
-### 原理
+### 准备工作
 
 #### 概念先行
 
@@ -16,10 +16,29 @@
 - 加快TTFP(Time To First Page)
 - 增加SEO
 
-#### 实现原理 -- 虚拟dom
+#### 实现原理 
 
 ![ssr](https://github.com/MJingv/ssr-react/blob/master/ssr.png)
 
+- 虚拟dom
+> 1. 虚拟 DOM 是真实 DOM 的一个 JavaScript 对象映射
+> 1. 在服务器，我可以操作 JavaScript 对象，判断环境是服务器环境，我们把虚拟 DOM 映射成字符串输出；
+> 1. 在客户端，我也可以操作 JavaScript 对象，判断环境是客户端环境，我就直接将虚拟 DOM 映射成真实 DOM，完成页面挂载。
+
+- ssr差异 (C vs S)
+> 1. 代码：只有【组件】代码可以共用，路由不同【服务器用StaticRouter】【客户端用BrowserRouter】
+> 3. 异步获取数据：在服务器端，页面一旦确定内容，就没有办法 Rerender。判断路由，用promise队列获取所有数据ready再渲染
+> 3. 跨域：客户端有同源限制，可用【 express-http-proxy 】做代理，服务器端无限制
+> 1. 打包：
+
+     1. 入口不同
+     2. server 用 target: node 
+     3. server 用【webpack-node-externals】排除打包node已有的包
+     4. css不同：客户端用 css-loader 和 style-loader，css-loader 不但会在 DOM 上生成 class 类名，解析好的 CSS 代码，还会通过 style-loader 把代码挂载到页面上。
+     5. 服务器端 css 用【 isomorphic-style-loader】拿到返回的样式代码，然后以字符串的形式添加到服务器端渲染的 HTML 之中
+
+---
+---
 ---
 
 ### attention
@@ -54,8 +73,6 @@
 
 
 ---
-
-
 
 ### redux数据管理
 **服务器端渲染**
@@ -101,7 +118,6 @@
 **注意**
 > 1. 配置执行顺序：从下到上，从右到左
 
-
 ---
 
 
@@ -115,10 +131,7 @@
 ### 中间层
 浏览器=》node-server=》c++/java-server
 > 1. node服务器只负责拼装并返回页面，java/c++服务器负责底层数据处理
-> 1. 
-> 1. 
-> 1. 
-> 1. 
+ 
 ---
 
 #### 问题：ssr无法正常render绑定事件
